@@ -1,97 +1,42 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
-import 'package:pdf/widgets.dart' as pw;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'configs/utils/app_routes.dart';
+import 'configs/utils/colors_utils.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  Future<void> main() async {
-    final pdf = pw.Document();
-
-    pdf.addPage(
-      pw.Page(
-        build: (pw.Context context) => pw.Center(
-          child: pw.Text('Hello World!'),
-        ),
-      ),
-    );
-
-    final file = File('example.pdf');
-    await file.writeAsBytes(await pdf.save());
-  }
-
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Doc Pet',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          _incrementCounter;
-          main();
-
-          final pdf = pw.Document();
-
-          pdf.addPage(
-            pw.Page(
-              build: (pw.Context context) => pw.Center(
-                child: pw.Text('Hello World!'),
-              ),
-            ),
-          );
-
-          final file = File('example.pdf');
-          await file.writeAsBytes(await pdf.save());
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+          fontFamily: 'Heavitas',
+          primaryColor: ColorsUtil.black,
+          buttonTheme: const ButtonThemeData(
+            buttonColor: ColorsUtil.black,
+            textTheme: ButtonTextTheme.accent,
+          ),
+          textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: const TextStyle(fontFamily: 'Heavitas')), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green).copyWith(secondary: ColorsUtil.black)),
+      initialRoute: 'splash',
+      onGenerateRoute: RouteGenerator.generateRoute,
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        // AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('pt', ''),
+        Locale('es', ''),
+      ],
     );
   }
 }
