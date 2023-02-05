@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Doc Pet',
+      title: 'Rg Pet',
       theme: ThemeData(
           fontFamily: 'Heavitas',
           primaryColor: ColorsUtil.black,
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             textTheme: ButtonTextTheme.accent,
           ),
           textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: const TextStyle(fontFamily: 'Heavitas')), colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green).copyWith(secondary: ColorsUtil.black)),
+              headline6: const TextStyle(fontFamily: 'Heavitas')), colorScheme: ColorScheme.fromSwatch(primarySwatch: ColorsUtil.bluePrimaryPalette).copyWith(secondary: ColorsUtil.black)),
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,

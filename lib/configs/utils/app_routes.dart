@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../feature/home/home_page.dart';
+import '../../feature/login/ui/login_page.dart';
 import '../../feature/splash/ui/splash_page.dart';
 
 class RouteGenerator {
@@ -6,6 +8,10 @@ class RouteGenerator {
     switch (settings.name) {
       case 'splash':
         return MaterialPageRoute(builder: (_) => const SplashPage());
+      case 'home':
+        return MaterialPageRoute(builder: (_) => const HomePage());
+      case 'login':
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       default:
         _erroRoute();
     }
