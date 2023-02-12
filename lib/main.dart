@@ -10,29 +10,34 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Rg Pet',
       theme: ThemeData(
-          fontFamily: 'Heavitas',
+          fontFamily: 'AnimalHouse',
           primaryColor: ColorsUtil.black,
           buttonTheme: const ButtonThemeData(
             buttonColor: ColorsUtil.black,
             textTheme: ButtonTextTheme.accent,
           ),
-          textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: const TextStyle(fontFamily: 'Heavitas')), colorScheme: ColorScheme.fromSwatch(primarySwatch: ColorsUtil.bluePrimaryPalette).copyWith(secondary: ColorsUtil.black)),
+          textTheme: ThemeData.light()
+              .textTheme
+              .copyWith(headline6: const TextStyle(fontFamily: 'AnimalHouse')),
+          // colorScheme: ColorScheme.fromSwatch(primarySwatch: ColorsUtil.green)
+          //     .copyWith(secondary: ColorsUtil.black)
+        ),
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [
+      localizationsDelegates: [
         // AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
+      supportedLocales: [
         Locale('en', ''),
         Locale('pt', ''),
         Locale('es', ''),
