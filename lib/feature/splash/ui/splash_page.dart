@@ -13,7 +13,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 8), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.popAndPushNamed(context, 'login');
     });
     return Scaffold(

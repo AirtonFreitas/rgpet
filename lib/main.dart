@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
             buttonColor: ColorsUtil.black,
             textTheme: ButtonTextTheme.accent,
           ),
-          textTheme: ThemeData.light()
+          iconTheme: const IconThemeData(color: ColorsUtil.green),
+          textTheme: ThemeData.light().copyWith()
               .textTheme
               .copyWith(headline6: const TextStyle(fontFamily: 'AnimalHouse')),
           // colorScheme: ColorScheme.fromSwatch(primarySwatch: ColorsUtil.green)
@@ -31,13 +32,13 @@ class MyApp extends StatelessWidget {
       initialRoute: 'splash',
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         // AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en', ''),
         Locale('pt', ''),
         Locale('es', ''),
